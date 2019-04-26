@@ -7,10 +7,16 @@ function todosReducer(state = [], action)
       return action.todos;
     
     case UPDATE_TODO:
-      return state.map(todo => (todo.id === action.index)
-      ? {...todo, title: todo.title, description: todo.description}
-      : todo
-    );
+      return state.map((todo) => {
+        if(todo.id === action.id) {
+          return {
+            ...todo,
+            title: action.data.newTitle,
+            description: action.data.newDescription,
+            editing: !todo.editing
+          }
+        } else return todo
+      });
 
     case ADD_TODO:
       return [
@@ -19,18 +25,18 @@ function todosReducer(state = [], action)
           id: action.id,
           title: action.title,
           description: action.description,
-          done: false
+          editing: false
         }
       ];
       
       case TOGGLE_TODO:
-        return state.map(todo => (todo.id === action.index)
-          ? {...todo, done: !todo.done}
+        return state.map((todo) => (todo.id === action.index)
+          ? {...todo, editing: !todo.editing}
           : todo
       );
       
       case DELETE_TODO:
-        return state.filter(todo => todo.id !== action.index);
+        return state.filter((todo) => todo.id !== action.id);
         
         default:
           return state;
