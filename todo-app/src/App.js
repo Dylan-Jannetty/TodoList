@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import TodosContainer from './components/TodosContainer'
+import AllTodos from './components/allTodos';
+import TodoForm from './components/todoForm';
 
 class App extends Component {
   render() {
@@ -9,7 +10,8 @@ class App extends Component {
         <div className="header">
           <h1>Todo List</h1>
         </div>
-        <TodosContainer />
+        <TodoForm />
+        <AllTodos />
       </div>
     );
   }

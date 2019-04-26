@@ -8,12 +8,12 @@ export function addTodo(id, title, description) {
   return { type: ADD_TODO, id: id, title: title, description: description }
 }
 
-export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index: index }
+export function toggleTodo(id) {
+  return { type: TOGGLE_TODO, id: id }
 }
 
-export function deleteTodo(index) {
-  return { type: DELETE_TODO, index: index }
+export function deleteTodo(id) {
+  return { type: DELETE_TODO, id: id }
 }
 
 export function updateTodo(id, title, description) {
