@@ -64,6 +64,45 @@ input[placeholder] {
 	border-radius: 5px;
 }
 
+.createbuttonContain {
+	display: flex;
+	justify-content: center;
+}
+
+.createButton {
+	/* width: 30em; */
+	width: 100%;
+	border: 1px solid black;
+}
+
+
+.iconContainer {
+	border-top: 2px solid black;
+	border-width: thin;
+	width: 150px;
+	display: flex;
+	justify-content: space-around;	
+}
+
+.editIcon, .deleteIcon, .infoIcon {
+	margin-top: 10px;
+	font-size: 20px;
+	hover: pointer;
+}
+
+.editIcon {
+	color: blue;
+}
+
+.deleteIcon {
+	color: red;
+}
+
+.infoIcon {
+	color: green;
+}
+
+
 .header {
 	color: black;
 	padding: 5px;

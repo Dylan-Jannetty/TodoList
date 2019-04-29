@@ -3,12 +3,16 @@ import { deleteTodo, toggleTodo } from '../actions/actionCreators';
 import { connect } from 'react-redux';
 import EditTodo from './editTodo';
 import axios from 'axios';
+import Collapse from 'react-bootstrap/Collapse';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: false
+      editing: false,
+      open: false
     };
   }
   deleteTodo = () => {
@@ -32,13 +36,17 @@ class Todo extends Component {
        <EditTodo todo={this.props.todo} key={this.props.todo.id} />
       )
     }
+    const { open } = this.state;
     return (
       <div>
         <h2>{this.props.todo.title}</h2>
-        <p>{this.props.todo.description}</p>
-        <div>
-          <button onClick={()=> this.toggleEdit()}>Edit</button>
-          <button onClick={()=> this.deleteTodo()}>Delete</button>
+        <Collapse in={this.state.open}>
+         <p>{this.props.todo.description}</p>
+        </Collapse>
+        <div className="iconContainer">
+          <FontAwesomeIcon onClick={()=> this.toggleEdit()} icon={faEdit} className="editIcon" />
+          <FontAwesomeIcon onClick={()=> this.deleteTodo()} icon={faTrash} className="deleteIcon" />
+          <FontAwesomeIcon onClick={()=> this.setState({ open: !open })} aria-expanded={open} icon={faInfoCircle} className="infoIcon" />
         </div>
       </div>
     );
