@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { deleteTodo, toggleTodo } from '../actions/actionCreators';
 import { connect } from 'react-redux';
+import EditTodo from './editTodo';
 import axios from 'axios';
 
 class Todo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: false
+    };
+  }
   deleteTodo = () => {
     axios.delete(`/api/v1/todos/${this.props.todo.id}`)
     .then(response => {
@@ -13,11 +20,18 @@ class Todo extends Component {
   }
   
   toggleEdit = (e, id) => {
-    this.props.dispatch(toggleTodo(id))
+    this.setState({
+      editing: !this.state.editing
+    })
   }
   
   
   render() {
+    if (this.state.editing) {
+      return (
+       <EditTodo todo={this.props.todo} key={this.props.todo.id} />
+      )
+    }
     return (
       <div>
         <h2>{this.props.todo.title}</h2>
@@ -30,5 +44,7 @@ class Todo extends Component {
     );
   }
 }
+
+
 
 export default connect()(Todo);

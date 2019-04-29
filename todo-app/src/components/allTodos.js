@@ -18,7 +18,6 @@ class AllTodos extends Component {
   
   componentDidMount() {
     this.getTodos()
-    console.log(this.getTodos());
   }
   
   render(){
@@ -27,11 +26,7 @@ class AllTodos extends Component {
         <h1>All Tasks</h1>
         {this.props.todos.map((todo)=> (
           <div key={todo.id}>
-            {todo.editing ? 
-              <EditTodo todo={todo} key={todo.id} />
-              :
-              <Todo key={todo.id} todo={todo} />
-            }
+            <Todo key={todo.id} todo={todo} />
           </div>
         ))}
       </div>
