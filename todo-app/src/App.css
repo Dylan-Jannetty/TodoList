@@ -1,3 +1,4 @@
+
 ul.taskList {
 	padding: 0 25px;
 }
@@ -19,7 +20,6 @@ input.taskCheckbox {
 	position: relative;
 	float: left;
 	margin-right: 10px;
-	-webkit-appearance: none;
 	width: 20px;
 	height: 20px;
 	border: 1px solid #ccc;
@@ -56,13 +56,12 @@ input[placeholder] {
 	font-size: 1.1em;
 }
 
-.container {
-	width: 40%;
+/* .container {
 	height: 400px;
 	position: relative;
 	margin: 0 auto;
 	border-radius: 5px;
-}
+} */
 
 .createbuttonContain {
 	display: flex;
@@ -71,19 +70,66 @@ input[placeholder] {
 
 .createButton {
 	/* width: 30em; */
-	width: 100%;
+	width: 50%;
 	border: 1px solid black;
 }
+.noTaskText {
+	display: flex;
+	justify-content: center;
+	margin-top: 3em;
+}
+.noTasks {
+	display: flex;
+	justify-content: center;
+	flex-flow: row;
+}
 
+.kermit {
+	width: 450px;
+	height: 400px;
+}
 
+.taskContainer {
+	border: 2px solid black;
+	margin-bottom: 1em;
+	background-size: cover;
+	width: 400px;
+	height: 350px;
+}
+
+.taskTitle {
+	display: flex;
+	justify-content: center;
+	padding-top: 4em;
+}
+
+.taskDesc { 
+	display: flex;
+	justify-content: center;
+	font-size: 20px;
+	max-width: 334px;
+	margin-left: 2em;
+	overflow: scroll;
+}
 .iconContainer {
 	border-top: 2px solid black;
 	border-width: thin;
 	width: 150px;
 	display: flex;
-	justify-content: space-around;	
+	justify-content: space-around;
+	padding-left: 0em;
+	margin-left: 7.5em;
+	margin-top: 1em;	
 }
 
+.allTodoContain {
+	height: 850px;
+	margin: 0 10em;
+	overflow-y: scroll;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
 .editIcon, .deleteIcon, .infoIcon {
 	margin-top: 10px;
 	font-size: 20px;

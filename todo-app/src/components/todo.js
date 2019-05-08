@@ -7,6 +7,7 @@ import Collapse from 'react-bootstrap/Collapse';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
+
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -33,15 +34,15 @@ class Todo extends Component {
   render() {
     if (this.state.editing) {
       return (
-       <EditTodo todo={this.props.todo} key={this.props.todo.id} />
+       <EditTodo className="editTodoField" todo={this.props.todo} key={this.props.todo.id} />
       )
     }
     const { open } = this.state;
     return (
-      <div>
-        <h2>{this.props.todo.title}</h2>
+      <div className="taskContainer">
+        <h2 className="taskTitle">{this.props.todo.title}</h2>
         <Collapse in={this.state.open}>
-         <p>{this.props.todo.description}</p>
+         <p className="taskDesc">{this.props.todo.description}</p>
         </Collapse>
         <div className="iconContainer">
           <FontAwesomeIcon onClick={()=> this.toggleEdit()} icon={faEdit} className="editIcon" />

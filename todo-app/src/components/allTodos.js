@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { loadTodos } from '../actions/actionCreators';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import kermit from '../images/kermit.jpg';
 
 import Todo from './todo';
 import EditTodo from './editTodo';
@@ -21,14 +22,27 @@ class AllTodos extends Component {
   }
   
   render(){
+    if(this.props.todos.length < 1) {
+      return(
+        <div className="noTasks">
+          <div className="noTasksContain">
+            <div className="noTaskText">You probably have some stuff to do..</div>
+            <br />
+            <img className="kermit" src={kermit} alt="kermit" />
+          </div>
+        </div>
+      )
+    }
     return (
       <div>
         <h1>All Tasks</h1>
-        {this.props.todos.map((todo)=> (
-          <div key={todo.id}>
-            <Todo key={todo.id} todo={todo} />
+          <div className="allTodoContain">
+          {this.props.todos.map((todo)=> (
+            <div key={todo.id}>
+              <Todo key={todo.id} todo={todo} />
+            </div>
+          ))}
           </div>
-        ))}
       </div>
     );
   }

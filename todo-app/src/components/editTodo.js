@@ -17,11 +17,11 @@ class EditTodo extends Component {
   
   render() {
     return (
-      <div key={this.props.todo.id} className="post">
+      <div key={this.props.todo.id} className="post taskContainer">
         <form className="form" onSubmit={this.handleEdit}>
-          <input required type="text" ref={(input) => this.newTitle = input}
+          <input className="taskTitle" required type="text" ref={(input) => this.newTitle = input}
           defaultValue={this.props.todo.title} placeholder="Enter Post Title" /><br /><br />
-          <textarea required rows="5" ref={(input) => this.newDescription = input}
+          <textarea className="taskDesc" required rows="5" ref={(input) => this.newDescription = input}
           defaultValue={this.props.todo.description} cols="28" placeholder="Enter Post" /><br /><br />
           <button>Update</button>
         </form>

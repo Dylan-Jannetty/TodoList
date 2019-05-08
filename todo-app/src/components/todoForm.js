@@ -81,15 +81,15 @@ class TodoForm extends Component {
           show={this.state.showModal}
           renderBackdrop={this.renderBackdrop}
           >
-        <h1>Create Task</h1>  
-        <form onSubmit={this.handleSubmit} className="inputContainer">
-          <input required className="taskInput" type="text" placeholder="Add a task" maxLength="50"
-             ref={(input)=>this.getTitle = input} />
-             
-          <input className="taskInputDesc" type="text" placeholder="Add a description" maxLength="50"
-            ref={(input)=>this.getDescription = input} />
-          <button>Add Task</button>
-        </form>
+          <h1>Create Task</h1>  
+          <form onSubmit={this.handleSubmit} className="inputContainer">
+            <input required className="taskInput" type="text" placeholder="Add a task" maxLength="50"
+               ref={(input)=>this.getTitle = input} />
+               
+            <input className="taskInputDesc" type="text" placeholder="Add a description" maxLength="250"
+              ref={(input)=>this.getDescription = input} />
+            <button>Add Task</button>
+          </form>
         </Modal>  
       </div>
     );
