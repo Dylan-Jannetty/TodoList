@@ -35,7 +35,6 @@ class AllTodos extends Component {
     }
     return (
       <div>
-        <h1>All Tasks</h1>
           <div className="allTodoContain">
           {this.props.todos.map((todo)=> (
             <div key={todo.id}>
