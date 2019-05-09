@@ -5,10 +5,12 @@ html {
 
 body {
 	background-color: floralwhite;
-	/* -webkit-box-shadow: 10px 10px 75px 0px rgba(2,2,166,1);
-	-moz-box-shadow: 10px 10px 75px 0px rgba(2,2,166,1);
-	box-shadow: 10px 10px 75px 0px rgba(2,2,166,1); */
 }
+
+Modal {
+	padding: 20px 20px;
+}
+
 ul.taskList {
 	padding: 0 25px;
 }
@@ -92,6 +94,7 @@ input[placeholder] {
 	display: flex;
 	justify-content: center;
 	flex-flow: row;
+	height: 800px;
 }
 
 .kermit {
@@ -117,6 +120,21 @@ input[placeholder] {
 	padding-top: 4em;
 }
 
+.todo-enter {
+  opacity: 0;
+}
+.todo-enter-active {
+  opacity: 1;
+  transition: opacity 800ms ease-in;
+}
+.todo-exit {
+  opacity: 1;
+}
+.todo-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
 .taskDesc { 
 	display: flex;
 	justify-content: center;
@@ -124,6 +142,10 @@ input[placeholder] {
 	max-width: 334px;
 	margin-left: 2em;
 	overflow: scroll;
+	border: 1px solid #e5e5e5;
+	backgroundColor: white;
+	boxShadow: 0 5px 15px rgba(0,0,0,.5);
+	/* border: 1px solid aqua; */
 }
 .iconContainer {
 	border-top: 2px solid black;
@@ -190,7 +212,6 @@ input[placeholder] {
 }
 
 .listWrapper {
-	
 	bottom: 50px;
 	top: 160px;
 	right: 0;

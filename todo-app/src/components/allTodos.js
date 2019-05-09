@@ -3,6 +3,7 @@ import { loadTodos } from '../actions/actionCreators';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import kermit from '../images/kermit.jpg';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import Todo from './todo';
 import EditTodo from './editTodo';
@@ -35,13 +36,15 @@ class AllTodos extends Component {
     }
     return (
       <div>
-          <div className="allTodoContain">
+      <TransitionGroup className="allTodoContain">
           {this.props.todos.map((todo)=> (
-            <div key={todo.id}>
-              <Todo key={todo.id} todo={todo} />
-            </div>
+            <CSSTransition key={todo.id} timeout={500} classNames="todo">
+              <div key={todo.id}>
+                 <Todo key={todo.id} todo={todo} />
+              </div>
+            </CSSTransition>
           ))}
-          </div>
+          </TransitionGroup>
       </div>
     );
   }

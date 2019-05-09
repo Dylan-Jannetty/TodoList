@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 
+
 class Todo extends Component {
   constructor(props) {
     super(props);
@@ -39,17 +40,19 @@ class Todo extends Component {
     }
     const { open } = this.state;
     return (
-      <div className="taskContainer">
-        <h2 className="taskTitle">{this.props.todo.title}</h2>
-        <Collapse in={this.state.open}>
-         <p className="taskDesc">{this.props.todo.description}</p>
-        </Collapse>
-        <div className="iconContainer">
-          <FontAwesomeIcon onClick={()=> this.toggleEdit()} icon={faEdit} className="editIcon" />
-          <FontAwesomeIcon onClick={()=> this.deleteTodo()} icon={faTrash} className="deleteIcon" />
-          <FontAwesomeIcon onClick={()=> this.setState({ open: !open })} aria-expanded={open} icon={faInfoCircle} className="infoIcon" />
+      
+        <div className="taskContainer">
+          <h2 className="taskTitle">{this.props.todo.title}</h2>
+          <Collapse in={this.state.open}>
+           <p className="taskDesc">{this.props.todo.description}</p>
+          </Collapse>
+          <div className="iconContainer">
+            <FontAwesomeIcon onClick={()=> this.toggleEdit()} icon={faEdit} className="editIcon" />
+            <FontAwesomeIcon onClick={()=> this.deleteTodo()} icon={faTrash} className="deleteIcon" />
+            <FontAwesomeIcon onClick={()=> this.setState({ open: !open })} aria-expanded={open} icon={faInfoCircle} className="infoIcon" />
+          </div>
         </div>
-      </div>
+        
     );
   }
 }

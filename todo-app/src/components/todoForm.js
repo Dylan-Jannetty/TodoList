@@ -29,6 +29,7 @@ class TodoForm extends Component {
         this.props.dispatch(addTodo(response.data.id, response.data.title, response.data.description))
         this.getTitle.value = ''
         this.getDescription.value = ''
+        this.close()
       })
       .catch(error => console.log(error))
   }  
@@ -83,10 +84,10 @@ class TodoForm extends Component {
           >
           <h1>Create Task</h1>  
           <form onSubmit={this.handleSubmit} className="inputContainer">
-            <input required className="taskInput" type="text" placeholder="Add a task" maxLength="50"
-               ref={(input)=>this.getTitle = input} />
+            <input required className="taskInput" type="text" placeholder="Add a task.." maxLength="50"
+              ref={(input)=>this.getTitle = input} />
                
-            <input className="taskInputDesc" type="text" placeholder="Add a description" maxLength="250"
+            <input className="taskInputDesc" type="text" placeholder="Add a description.." maxLength="250"
               ref={(input)=>this.getDescription = input} />
             <button>Add Task</button>
           </form>

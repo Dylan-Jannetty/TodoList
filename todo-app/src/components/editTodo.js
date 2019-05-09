@@ -21,8 +21,8 @@ class EditTodo extends Component {
         <form className="form" onSubmit={this.handleEdit}>
           <input className="taskTitle" required type="text" ref={(input) => this.newTitle = input}
           defaultValue={this.props.todo.title} placeholder="Enter Post Title" /><br /><br />
-          <textarea className="taskDesc" required rows="5" ref={(input) => this.newDescription = input}
-          defaultValue={this.props.todo.description} cols="28" placeholder="Enter Post" /><br /><br />
+          <textarea className="taskDesc" rows="5" ref={(input) => this.newDescription = input}
+          defaultValue={this.props.todo.description} cols="28" placeholder="Write notes of this task.." /><br /><br />
           <button>Update</button>
         </form>
       </div>
